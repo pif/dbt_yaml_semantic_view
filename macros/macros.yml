@@ -1,0 +1,15 @@
+version: 2
+
+macros:
+  - name: base_table
+    description: >
+      Renders the `base_table` block (database, schema, table) of a Semantic View YAML
+      for the given relation, and registers the dbt dependency on it.
+
+      This lets dbt build proper lineage for the semantic views.
+
+      Note: need 6 spaces indent for the macro-generated content so it works as expected in the YAML file.
+    arguments:
+      - name: relation
+        type: relation
+        description: A `ref()` or `source()` relation
